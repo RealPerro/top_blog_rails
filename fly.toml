@@ -1,13 +1,10 @@
-# fly.toml file generated for blue-snow-1404 on 2023-03-17T15:37:01Z
+# fly.toml file generated for odin-blog-1 on 2023-03-17T15:52:14Z
 
-app = "blue-snow-1404"
+app = "odin-blog-1"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "lhr"
 processes = []
-
-[build]
-  image = "flyio/hellofly:latest"
 
 [env]
 
@@ -16,7 +13,7 @@ processes = []
 
 [[services]]
   http_checks = []
-  internal_port = 8080
+  internal_port = 3000
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
@@ -39,3 +36,7 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
+
+[[statics]]
+  guest_path = "/rails/public"
+  url_prefix = "/"
